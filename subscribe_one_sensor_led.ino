@@ -6,25 +6,7 @@ int threshold=120;
 
 void setup() {
 pinMode(ledpin,OUTPUT);
-  // start the serial connection
-  Serial.begin(115200);
-
-  // wait for serial monitor to open
-  while(! Serial);
-
-  Serial.print("Connecting to Adafruit IO");
-
-  // start MQTT connection to io.adafruit.com
-  io.connect();
-
   
-  led->onMessage(handleMessage);
-
-  
-  while(io.mqttStatus() < AIO_CONNECTED) {
-    Serial.print(".");
-    delay(50000);
-  }
 
 
   led->get();
